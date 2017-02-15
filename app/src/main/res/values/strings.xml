@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Life Story</string>
+    <string name="status_type">Lifestyle</string>
+    <string name="timestamp">12.00pm</string>
+    <string name="status_text">Feeling cool with childhood friends :D</string>
+    <string name="like_text">Like</string>
+    <string name="back_button">Back button</string>
+</resources>
