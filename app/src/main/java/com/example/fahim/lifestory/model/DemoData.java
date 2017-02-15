@@ -30,9 +30,9 @@ public class DemoData {
     private static final String[] person_status = {"Feeling cool with childhood friends :D",
         "Traveling to Bangladesh :D", "Welcome! Today is Pohela Falgun.", "Looking for a weekend plan", "Last sentence by people often not completed :("};
 
-    public static String[] like_update = {"Like","Unlike","Like","Unlike","Like"};
-    public static int[] like_icon = {R.drawable.like,R.drawable.like_pressed,R.drawable.like,R.drawable.like_pressed,R.drawable.like,};
-
+//    public static String[] like_update = {"Like","Unlike","Like","Unlike","Like"};
+//    public static int[] like_icon = {R.drawable.like,R.drawable.like_pressed,R.drawable.like,R.drawable.like_pressed,R.drawable.like,};
+    public static  int[] like_count = {0,0,0,0,0};
     public static List<ListItem> getListData() {
         List<ListItem> data = new ArrayList<>();
 
@@ -46,8 +46,9 @@ public class DemoData {
                 item.setCatagoryStatus(catagory_status[j]);
                 item.setStatusTime(status_time[j]);
                 item.setProfileStatus(person_status[j]);
-                item.setLikeUpdate(like_update[j]);
-                item.setLikeIconId(like_icon[j]);
+//                item.setLikeUpdate(like_update[j]);
+//                item.setLikeIconId(like_icon[j]);
+                item.setLikeCounter(like_count[j]);
                 data.add(item);
             }
         }

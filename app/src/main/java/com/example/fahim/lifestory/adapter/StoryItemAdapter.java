@@ -62,6 +62,7 @@ public class StoryItemAdapter extends RecyclerView.Adapter<StoryItemAdapter.Item
         private TextView profileStatus;
         private ImageView statusImage;
         private TextView likeCount;
+        private TextView likeText;
         private View container;
 
         public ItemHolder(View itemView) {
@@ -72,7 +73,8 @@ public class StoryItemAdapter extends RecyclerView.Adapter<StoryItemAdapter.Item
             statusTime = (TextView) itemView.findViewById(R.id.timestamp);
             profileStatus = (TextView) itemView.findViewById(R.id.status_bar);
             statusImage = (ImageView) itemView.findViewById(R.id.status_image);
-            likeCount = (TextView) itemView.findViewById(R.id.likes);
+            likeCount = (TextView) itemView.findViewById(R.id.like_counter);
+            likeText = (TextView) itemView.findViewById(R.id.like_text);
             container = itemView.findViewById(R.id.activity_main);
         }
 
@@ -104,20 +106,32 @@ public class StoryItemAdapter extends RecyclerView.Adapter<StoryItemAdapter.Item
 
             likeCount.setOnClickListener(new View.OnClickListener() {
 
+                int x = DemoData.like_count[position];
                 @Override
                 public void onClick(View v) {
-                    if(DemoData.like_update[position].equals("Unlike")) {
-                        ((TextView)v).setCompoundDrawablesWithIntrinsicBounds(R.drawable.like,0,0,0);
-                        ((TextView)v).setText("Like");
-                        DemoData.like_update[position] = "Like";
-                        DemoData.like_icon[position] = R.drawable.like;
+
+                    ((TextView)v).setCompoundDrawablesWithIntrinsicBounds(R.drawable.like_pressed,0,0,0);
+                    x++;
+                    ((TextView)v).setText(""+x);
+                    DemoData.like_count[position] = x;
+                    if(x>1) {
+                        likeText.setText("Likes");
                     }
                     else {
-                        ((TextView)v).setCompoundDrawablesWithIntrinsicBounds(R.drawable.like_pressed,0,0,0);
-                        ((TextView)v).setText("Unlike");
-                        DemoData.like_update[position] = "Unlike";
-                        DemoData.like_icon[position] = R.drawable.like_pressed;
+                        likeText.setText("Like");
                     }
+//                    if(DemoData.like_update[position].equals("Unlike")) {
+//                        ((TextView)v).setCompoundDrawablesWithIntrinsicBounds(R.drawable.like,0,0,0);
+//                        ((TextView)v).setText("Like");
+//                        DemoData.like_update[position] = "Like";
+//                        DemoData.like_icon[position] = R.drawable.like;
+//                    }
+//                    else {
+//                        ((TextView)v).setCompoundDrawablesWithIntrinsicBounds(R.drawable.like_pressed,0,0,0);
+//                        ((TextView)v).setText("Unlike");
+//                        DemoData.like_update[position] = "Unlike";
+//                        DemoData.like_icon[position] = R.drawable.like_pressed;
+//                    }
                 }
 
             });

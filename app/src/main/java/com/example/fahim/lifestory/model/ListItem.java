@@ -19,6 +19,8 @@ public class ListItem {
     private String profileStatus;
     private int statusImageId;
     private int likeIconId;
+    private int likeCounter;
+    private String likeText;
     private String likeUpdate;
 
     public int getProfileImage() {
@@ -91,5 +93,21 @@ public class ListItem {
 
     public void setLikeUpdate(String likeUpdate) {
         this.likeUpdate = likeUpdate;
+    }
+
+    public int getLikeCounter() {
+        return likeCounter;
+    }
+
+    public void setLikeCounter(int likeCounter) {
+        this.likeCounter = likeCounter;
+    }
+
+    public String getLikeText() {
+        return likeText;
+    }
+
+    public void setLikeText(String likeText) {
+        this.likeText = likeText;
     }
 }
